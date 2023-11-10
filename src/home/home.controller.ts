@@ -12,9 +12,9 @@ export class HomeController {
 
   @Get()
   async appInfo(@Req() request: Request) {
+    console.log(request);
     const ipAddress = request.ip;
     const ipv4 = convertIPv6toIPv4(ipAddress);
-    console.log(ipAddress, ipv4);
     const mac = await arp.toMAC(ipv4);
     console.log(mac);
     console.table(await arp.getTable());

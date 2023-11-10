@@ -8,6 +8,7 @@ import { DataSource } from 'typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UserLoginsModule } from './user_logins/user_logins.module';
 import { RolesModule } from './roles/roles.module';
+import { DownloadsModule } from './downloads/downloads.module';
 import databaseConfig from './config/database.config';
 
 @Module({
@@ -28,6 +29,7 @@ import databaseConfig from './config/database.config';
     AuthModule,
     UserLoginsModule,
     RolesModule,
+    DownloadsModule,
   ],
 })
 export class AppModule {}
