@@ -10,6 +10,7 @@ import { UserLoginsModule } from './user_logins/user_logins.module';
 import { RolesModule } from './roles/roles.module';
 import { DownloadsModule } from './downloads/downloads.module';
 import databaseConfig from './config/database.config';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import databaseConfig from './config/database.config';
     UserLoginsModule,
     RolesModule,
     DownloadsModule,
+    FilesModule,
   ],
 })
 export class AppModule {}

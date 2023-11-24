@@ -1,13 +1,23 @@
 version: '3'
 
 services:
-  api:
-    env_file:
-      - .env
-    build:
-      context: .
-      dockerfile: Dockerfile
+  # api:
+  #   env_file:
+  #     - .env
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 3000:3000
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  postgres:
+    image: postgres:14.4
     ports:
-      - 3000:3000
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - ./.data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
